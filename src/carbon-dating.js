@@ -25,7 +25,7 @@ function dateSample(sampleActivity) {
     let result =
       Math.log(MODERN_ACTIVITY / sampleActivity) / (0.693 / HALF_LIFE_PERIOD);
     result = Math.ceil(result);
-    return result;
+    return result
   }
   return false;
 }
