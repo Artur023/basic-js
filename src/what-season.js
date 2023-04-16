@@ -14,12 +14,17 @@ const { NotImplementedError } = require("../extensions/index.js");
  */
 
 function getSeason(date) {
+  if (date != undefined && Object.getOwnPropertyNames(date).length != 0) {
+    throw new Error("Invalid date!");
+  }
   if (date === undefined) {
     return "Unable to determine the time of year!";
   }
-
+  if (Object.prototype.toString.call(date) !== "[object Date]" || isNaN(date)) {
+    throw new Error("Invalid date!");
+  }
   if (
-    Object.prototype.toString.call(date) === "[object Date]" &&
+    Object.prototype.toString.call(date) === "[object Date]" ||
     !isNaN(date)
   ) {
     let month = date.getMonth();
